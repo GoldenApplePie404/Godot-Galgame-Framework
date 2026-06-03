@@ -1,0 +1,457 @@
+# 框架综合测试脚本
+# 覆盖全部功能指令 + 左右两侧
+# 金苹果派的青春可爱演绎
+
+@chapter framework_test
+
+@label start
+@bg bg_1
+@bgm peaceful_day
+@transition fade_from_black 0.8
+
+旁白: 诶，好像有人在那边——
+旁白: 哦，原来是你呀！今天要一起测试新功能对吧？
+@perform gap wink
+金苹果派: 喵~等你半天啦！我准备了好多好玩的！
+
+@choice
+要开始吗？
+好呀好呀！
+@jump test_basic
+再等一下下…
+@jump test_delay1
+
+# ── 等等×1 ──
+@label test_delay1
+@perform gap stand
+金苹果派: 唔…还要等哦？
+金苹果派: 好吧好吧，那你快点哦！
+@choice
+还测试吗？
+开始啦！
+@jump test_basic
+再一下下…
+@jump test_delay2
+
+# ── 等等×2 ──
+@label test_delay2
+@perform gap smile2
+金苹果派: 又等一下！！q(≧口≦)q
+金苹果派: 我站在这儿好无聊的！
+@choice
+还测试吗？
+开始吧！
+@jump test_basic
+等等啦
+@jump test_delay3
+
+# ── 等等×3 ──
+@label test_delay3
+@perform gap wink
+金苹果派: 第三次了！第三次了哦！
+金苹果派: 你再不开始我就一个人玩了哼！
+@choice
+还测试吗？
+开始开始！
+@jump test_basic
+再一下下嘛
+@jump test_delay4
+
+# ── 等等×4 ──
+@label test_delay4
+@perform gap smile2
+金苹果派: ………………
+金苹果派: 我什么都没说，你自己看着办(￣▽￣)"
+@choice
+还测试吗？
+好啦我错了开始吧
+@jump test_basic
+再等一下……
+@jump test_delay5
+
+# ── 等等×5（最后一次） ──
+@label test_delay5
+@perform gap stand
+金苹果派: ……第五次。
+金苹果派: 这是最后的最后的机会了哦！
+@choice
+还测试吗？
+进行测试（没有别的选项啦！）
+@jump test_basic
+
+# ═══════════════════════════════════════════════════════
+# 测试1：基础对话 + 左侧表演
+# ═══════════════════════════════════════════════════════
+
+@label test_basic
+@perform gap wink
+金苹果派: 好哒！终于开始了！ヾ(^▽^)ノ
+金苹果派: 第一回合！基础对话测试——走起！
+
+@perform gap stand
+金苹果派: 喵~我先站好，默认姿势~你看到的对吧？
+@perform gap smile
+金苹果派: 嘿嘿，笑一个~怎么样怎么样？
+@perform gap smile2
+金苹果派: 这个是眯眯眼笑~看起来是不是有点小狡猾？
+@perform gap wink
+金苹果派: OK手势加眨眼！耶！
+@perform gap welcome
+金苹果派: 张开双手！欢迎光临！嘿嘿~
+
+@perform gap stand
+金苹果派: 好惹，五个姿势都换了一遍！全部OK！
+
+@perform gap smile
+金苹果派: 对了对了！还有个新功能——缩放！
+@char_scale gap 1.3
+金苹果派: 哇！变大啦！！是不是超有冲击力的！✧
+@perform gap wink
+金苹果派: 这个适合「震惊！」或者「超级得意！」的时候用~
+@char_scale gap 0.7
+金苹果派: 诶嘿~变小啦…委屈巴巴的感觉？
+@perform gap smile2
+金苹果派: 像这样缩成一团~可爱吧喵！
+@char_scale gap 1.0
+金苹果派: 好惹~变回正常大小！还是这个最舒服！
+
+@choice
+基础对话测试通过了吗？
+全部OK！继续~
+@jump begin_test2
+好像有Bug……
+@jump report_bug
+
+@label report_bug
+@perform gap stand
+金苹果派: 诶？！有Bug吗…
+金苹果派: 好吧我记下来了，后面就不测了。
+@jump bad_ending
+
+@label begin_test2
+金苹果派: 耶！第一个测试完美通过！
+@transition fade_to_black 0.5
+
+# ═══════════════════════════════════════════════════════
+# 测试2：右侧展示 + 翻转
+# ═══════════════════════════════════════════════════════
+
+@transition fade_from_black 0.5
+@char_side gap right
+@perform gap stand
+金苹果派: 哇！我现在在右边啦！↖(^ω^)↗
+金苹果派: 看，面朝你的方向哦！
+
+@char_flip gap
+金苹果派: 嘿！转过去啦——现在看另一边了！
+金苹果派: 剧情里想让我转身的话，就用这个指令~
+
+@char_flip gap
+金苹果派: 转回来！嘿嘿好玩吧？
+
+@perform gap smile
+金苹果派: 右边也能笑！功能完全正常！
+
+@perform gap wink
+金苹果派: 右边也能wink！怎么样，厉害吧！
+
+@choice
+右侧+翻转测试通过了吗？
+完全OK！
+@jump right_ok
+有问题！
+@jump report_bug2
+
+@label report_bug2
+金苹果派: 啊…右侧有问题吗…记下来了…
+@jump bad_ending
+
+@label right_ok
+金苹果派: 好耶！右侧测试通过！(๑•̀ㅂ•́)و✧
+@transition fade_to_black 0.5
+
+# ═══════════════════════════════════════════════════════
+# 测试3：背景/BGM切换
+# ═══════════════════════════════════════════════════════
+
+@transition fade_from_black 0.5
+@char_side gap left
+@perform gap wink
+金苹果派: 回来啦！左边还是熟悉的感觉~
+金苹果派: 现在试试换背景和音乐！
+
+@bg bg_2
+旁白: 背景从校门口变成了校园内~
+@bgm track_test
+旁白: BGM也切换啦！气氛不一样了~
+@bg bg_3
+旁白: 又换到食堂了！闻到了炸猪排的味道~
+@bg bg_1
+@bgm peaceful_day
+旁白: 换回原来的~一切正常！
+
+金苹果派: 背景和BGM都没问题！棒棒的！
+
+@choice
+背景/BGM测试通过了吗？
+没问题！
+@jump bg_ok
+有Bug！
+@jump report_bug3
+
+@label report_bug3
+金苹果派: 诶…背景有问题吗…好吧…
+@jump bad_ending
+
+@label bg_ok
+金苹果派: 背景BGM通过！Y(^o^)Y
+@transition fade_to_black 0.3
+
+# ═══════════════════════════════════════════════════════
+# 测试4：存档/读档
+# ═══════════════════════════════════════════════════════
+
+@transition fade_from_black 0.3
+@perform gap wink
+金苹果派: 测试4来啦！这次是存档功能~
+
+@perform gap stand
+金苹果派: 呐，你看，现在剧情里我说了这么多话对吧？
+金苹果派: 如果这时候存个档，下次读档就能从这里继续！
+金苹果派: 来试试看~ 按「ESC」打开菜单！
+
+@perform gap smile
+金苹果派: 看到「存档」按钮了吗？点进去，选一个空位~
+金苹果派: 然后点「保存」！搞定！
+
+@perform gap wink
+金苹果派: 好了，现在试试「读档」？重新进游戏的话，点「读档」选你刚才存的那一栏~
+金苹果派: 啊……不过跑测试中途不太好直接读档跳走。
+金苹果派: 所以这个功能就由你在实际游戏里亲自验证啦！
+
+金苹果派: 我帮你确认一下——存档系统确实已经在工作了！
+
+@choice
+存档系统可以用了吗？
+没问题！
+@jump save_ok
+有问题！
+@jump report_bug4
+
+@label report_bug4
+金苹果派: 诶？！存档有问题吗…
+金苹果派: 好吧记下了……后面的不能测了(´;ω;｀)
+@jump bad_ending
+
+@label save_ok
+金苹果派: 好耶！存档没问题！
+金苹果派: 记得到时候实际游戏里按ESC存档哦！
+@transition fade_to_black 0.3
+
+# ═══════════════════════════════════════════════════════
+# 测试5：选项分支 + 好感度
+# ═══════════════════════════════════════════════════════
+
+@transition fade_from_black 0.3
+@perform gap wink
+金苹果派: 接下来是选择题时间！
+金苹果派: 选哪条路，后面的剧情就不一样了哦！
+
+@choice
+选一个吧！
+今天超棒的！❤️
+@jump route_praise
+还…还行吧
+@jump route_improve
+
+# ── 路线A：被夸了 ──
+@label route_praise
+@perform gap smile
+金苹果派: 诶嘿~被夸了好开心！！(〃▽〃)
+@affection gap +5
+金苹果派: 好感度UPUP！+5！
+金苹果派: 心情超好！后面的测试也要加油！
+
+@choice
+选项分支测试通过了吗？
+通过啦！
+@jump praise_continue
+有Bug…
+@jump report_bug4
+
+@label report_bug4
+金苹果派: 呜呜…好吧记下了…
+@jump bad_ending
+
+@label praise_continue
+金苹果派: 好！去测成就系统！
+@jump test_achievement
+
+# ── 路线B：被说还行 ──
+@label route_improve
+@perform gap stand
+金苹果派: 唔…只是"还行"吗…
+金苹果派: 好吧那我继续加油！(｀へ´)
+@affection gap +3
+金苹果派: 好感度+3…虽然不多但也是爱！
+
+@choice
+选项分支测试通过了吗？
+通过啦！
+@jump improve_continue
+有Bug…
+@jump report_bug4b
+
+@label report_bug4b
+金苹果派: 唔…好吧记下了…
+@jump bad_ending
+
+@label improve_continue
+金苹果派: 好…去看成就吧。
+@jump test_achievement
+
+# ═══════════════════════════════════════════════════════
+# 测试6：成就系统
+# ═══════════════════════════════════════════════════════
+
+@label test_achievement
+@transition fade_to_black 0.3
+@transition fade_from_black 0.3
+@perform gap stand
+金苹果派: 测试6——成就系统！
+金苹果派: 叮！解锁一个成就给你看~
+
+@achievement unlock gap_dev_test 开发者认证 以开发者身份完成框架测试
+@perform gap wink
+金苹果派: 看！成就弹窗出来了吧！是不是很酷！
+
+@choice
+成就系统OK吗？
+OK！
+@jump achieve_ok
+有问题！
+@jump report_bug5
+
+@label report_bug5
+金苹果派: 成就出问题了？记下了…
+@jump bad_ending
+
+@label achieve_ok
+金苹果派: 成就系统通过！
+@transition fade_to_black 0.3
+
+# ═══════════════════════════════════════════════════════
+# 测试7：事件系统
+# ═══════════════════════════════════════════════════════
+
+@transition fade_from_black 0.3
+@perform gap stand
+金苹果派: 测试7——事件系统！
+金苹果派: 发射一个事件信号~biu！
+
+@event gap_custom_event
+@perform gap wink
+金苹果派: 已发射！EventBus收到了吗？
+
+@choice
+事件系统OK吗？
+OK！
+@jump event_ok
+有问题！
+@jump report_bug6
+
+@label report_bug6
+金苹果派: 好吧事件有问题…记下了…
+@jump bad_ending
+
+@label event_ok
+金苹果派: 事件系统通过！✧⁺⸜(●′▾`●)⸝⁺✧
+@transition fade_to_black 0.3
+
+# ═══════════════════════════════════════════════════════
+# 测试8：左右交替快速切换
+# ═══════════════════════════════════════════════════════
+
+@transition fade_from_black 0.3
+@char_side gap left
+@perform gap stand
+金苹果派: 最后一项！左右来回跑！
+金苹果派: 看好了别眨眼——
+
+@perform gap wink
+金苹果派: 左边！wink！
+
+@char_side gap right
+@perform gap smile
+金苹果派: 右边！笑！
+
+@char_side gap left
+@perform gap smile2
+金苹果派: 左边！眯眯眼！
+
+@char_side gap right
+@perform gap welcome
+金苹果派: 右边！欢迎光临！
+
+@char_side gap left
+@perform gap stand
+金苹果派: 回到左边！完美收工！
+
+@choice
+全部测试的结果是？
+完美通过！好耶！！
+@jump happy_ending
+有Bug要修……
+@jump bad_ending
+
+# ═══════════════════════════════════════════════════════
+# ★ 好结局 ★
+# ═══════════════════════════════════════════════════════
+
+@label happy_ending
+@bg bg_1
+@bgm peaceful_day
+@perform gap smile
+金苹果派: 好耶！！全部通过啦！！🎉🎉🎉
+金苹果派: ✅ 测试1（左侧基础）
+金苹果派: ✅ 测试2（右侧翻转）
+金苹果派: ✅ 测试3（背景BGM）
+金苹果派: ✅ 测试4（存档读档）
+金苹果派: ✅ 测试5（选项好感度）
+金苹果派: ✅ 测试6（成就系统）
+金苹果派: ✅ 测试7（事件系统）
+金苹果派: ✅ 测试8（左右交替）
+金苹果派: 全部搞定！我厉害吧！嘿嘿~
+
+@perform gap wink
+金苹果派: 有我在，没——问——题！✌️
+
+@achievement unlock gap_happy_ending 完美通关 全部测试通过
+@event gap_happy_ending
+
+@transition fade_to_black 1.0
+金苹果派: 下次再来找我玩呀！拜拜~👋
+@chapter_end
+
+# ═══════════════════════════════════════════════════════
+# ★ 坏结局 ★
+# ═══════════════════════════════════════════════════════
+
+@label bad_ending
+@transition fade_to_black 0.3
+@bg bg_1
+@bgm peaceful_day
+@perform gap stand
+金苹果派: 唔…有Bug需要修……
+金苹果派: 虽然有点遗憾，但没关系的！
+金苹果派: 修好了再来找我测就好啦~(｡•́︿•̀｡)
+
+@perform gap wink
+金苹果派: 开发者加油！我相信你！
+
+@achievement unlock gap_need_fix 有待完善 有Bug需要修复
+@event gap_need_fix
+
+@transition fade_to_black 1.0
+金苹果派: 下次见啦~等你好消息！
+@chapter_end

@@ -1,0 +1,52 @@
+{
+  "achievements": [
+    {
+      "id": "prologue_complete",
+      "name": "初识",
+      "description": "完成序章·破晓，开启新的校园生活",
+      "icon": "res://resources/ui/achievement_icon.png",
+      "type": "story",
+      "hidden": false,
+      "conditions": [
+        {"type": "event_triggered", "event_id": "prologue_ended"}
+      ],
+      "reward": {}
+    },
+    {
+      "id": "snow_first_meet",
+      "name": "雪中送炭",
+      "description": "在雪乃学姐的帮助下顺利入学",
+      "icon": "res://resources/ui/achievement_icon.png",
+      "type": "story",
+      "hidden": false,
+      "conditions": [
+        {"type": "event_triggered", "event_id": "snow_help_docs"}
+      ],
+      "reward": {}
+    },
+    {
+      "id": "meet_xinghe",
+      "name": "食堂生存指南",
+      "description": "结识星河，解锁食堂正确点餐方式",
+      "icon": "res://resources/ui/achievement_icon.png",
+      "type": "story",
+      "hidden": false,
+      "conditions": [
+        {"type": "event_triggered", "event_id": "xinghe_cafeteria"}
+      ],
+      "reward": {}
+    },
+    {
+      "id": "rooftop_view",
+      "name": "天台初眺",
+      "description": "站在天台上俯瞰整个校园",
+      "icon": "res://resources/ui/achievement_icon.png",
+      "type": "story",
+      "hidden": false,
+      "conditions": [
+        {"type": "event_triggered", "event_id": "rooftop_scene"}
+      ],
+      "reward": {}
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=7 format=3 uid="uid://esu12oosgb5"]
+
+[ext_resource type="Script" uid="uid://cqx2dbsl2g2kw" path="res://scripts/ui/character_data.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://c63ywpxiknpds" path="res://resources/characters/gap/gap-stand.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cbfh1tbc0ggin" path="res://resources/characters/gap/gap-stand-smile.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://icyyxlao5a7s" path="res://resources/characters/gap/gap-stand-smile2.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cugi77o5e0yu6" path="res://resources/characters/gap/gap-ok-wink.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cya3ibuflwjdw" path="res://resources/characters/gap/gap-welcome.png" id="6"]
+
+[resource]
+script = ExtResource("1")
+character_id = "gap"
+display_name = "金苹果派"
+face_offset = Vector2(0, 0)
+face_scale = Vector2(1, 1)
+target_height = 620.0
+poses = {}
+expressions = {}
+performances = {
+"smile": ExtResource("3"),
+"smile2": ExtResource("4"),
+"stand": ExtResource("2"),
+"welcome": ExtResource("6"),
+"wink": ExtResource("5")
+}

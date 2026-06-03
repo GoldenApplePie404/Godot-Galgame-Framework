@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/character_data.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://bvwh4ycecpa76" path="res://resources/characters/xuena/xuena_default.png" id="1_tex"]
+
+[resource]
+script = ExtResource("1_script")
+character_id = "xuena"
+display_name = "雪乃"
+face_offset = Vector2(0, 0)
+face_scale = Vector2(1, 1)
+target_height = 380.0
+poses = {
+}
+expressions = {
+}
+performances = {
+"default": ExtResource("1_tex")
+}

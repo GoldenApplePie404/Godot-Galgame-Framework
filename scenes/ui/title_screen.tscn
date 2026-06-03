@@ -1,0 +1,313 @@
+[gd_scene format=3 uid="uid://bo6l4abjaqvjc"]
+
+[ext_resource type="Script" uid="uid://bo6l4abjaqbvc" path="res://scripts/ui/title_screen.gd" id="0_title_script"]
+[ext_resource type="FontFile" uid="uid://dm43ge6fptwh7" path="res://resources/font/font2.ttf" id="1_font_title"]
+[ext_resource type="Texture2D" uid="uid://1nb8315meehx" path="res://resources/backgrounds/main_bg.png" id="2_a4ium"]
+[ext_resource type="FontFile" uid="uid://bwhrel8tawu0j" path="res://resources/font/font.ttf" id="2_font_regular"]
+[ext_resource type="Shader" uid="uid://338n1487wpa2" path="res://resources/shaders/title_particles.gdshader" id="3_shader_particles"]
+[ext_resource type="AudioStream" uid="uid://bfjq61fxev4gj" path="res://resources/audio/bgm.ogg" id="4_bgm"]
+[ext_resource type="Script" uid="uid://cx38gp8bdmqex" path="res://scripts/effects/button_sfx.gd" id="5_btn_sfx"]
+[ext_resource type="Texture2D" uid="uid://fb78ijsgjcqa" path="res://resources/backgrounds/title_cn.png" id="6_title_cn"]
+[ext_resource type="Texture2D" uid="uid://dayqgp8u2yk14" path="res://resources/backgrounds/title_jp.png" id="7_title_jp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_particles"]
+shader = ExtResource("3_shader_particles")
+shader_parameter/speed = 0.15
+shader_parameter/brightness = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_separator"]
+bg_color = Color(1, 0.7, 0.8, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0, 0, 0, 0.25)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.7, 0.8, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.88, 0.42, 0.55, 0.2)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.9, 0.5, 0.65, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 0.78, 0.85, 0.15)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.85098, 0.901961, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="TitleScreen" type="Control" unique_id=393165128]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("0_title_script")
+
+[node name="ButtonSfx" type="Node" parent="." unique_id=850085053]
+script = ExtResource("5_btn_sfx")
+
+[node name="Background" type="TextureRect" parent="." unique_id=547597912]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_a4ium")
+expand_mode = 2
+
+[node name="BGM" type="AudioStreamPlayer" parent="." unique_id=1200938823]
+stream = ExtResource("4_bgm")
+volume_db = -10.0
+autoplay = true
+bus = &"BGM"
+
+[node name="ParticleOverlay" type="ColorRect" parent="." unique_id=1768819624]
+visible = false
+material = SubResource("ShaderMaterial_particles")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.411765, 1, 1)
+
+[node name="TitleGroup" type="Control" parent="." unique_id=1521368721]
+layout_mode = 1
+anchor_left = 0.35
+anchor_right = 0.35
+anchor_bottom = 0.25
+offset_left = 30.0
+offset_top = 30.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TitleTexture" type="TextureRect" parent="TitleGroup" unique_id=1545593097]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 0
+offset_left = -537.5
+offset_top = -66.0
+offset_right = 238.5
+offset_bottom = 184.0
+size_flags_horizontal = 0
+texture = ExtResource("6_title_cn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SubtitleTexture" type="TextureRect" parent="TitleGroup" unique_id=1542242950]
+custom_minimum_size = Vector2(240, 30)
+layout_mode = 0
+offset_left = -190.5
+offset_top = 70.0
+offset_right = 156.5
+offset_bottom = 181.0
+size_flags_horizontal = 0
+texture = ExtResource("7_title_jp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SpacerTitle" type="Control" parent="TitleGroup" unique_id=816949966]
+custom_minimum_size = Vector2(0, 4)
+anchors_preset = 0
+
+[node name="DecorativeLine" type="HSeparator" parent="TitleGroup" unique_id=1430066088]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 0
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("StyleBoxFlat_separator")
+
+[node name="ButtonVBox" type="VBoxContainer" parent="." unique_id=627886052]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_right = 0.3
+anchor_bottom = 0.95
+offset_left = -279.0
+offset_top = 139.0
+offset_right = -64.0
+offset_bottom = 592.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="SpacerStart" type="Control" parent="ButtonVBox" unique_id=1803737417]
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="StartMargin" type="MarginContainer" parent="ButtonVBox" unique_id=1097669128]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 0
+
+[node name="StartBtn" type="Button" parent="ButtonVBox/StartMargin" unique_id=1576394860]
+custom_minimum_size = Vector2(210, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85, 0.9, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.5, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85, 0.9, 1)
+theme_override_fonts/font = ExtResource("1_font_title")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "开 始 游 戏"
+
+[node name="Spacer1" type="Control" parent="ButtonVBox" unique_id=595505513]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="LoadMargin" type="MarginContainer" parent="ButtonVBox" unique_id=1879608830]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 16
+
+[node name="LoadBtn" type="Button" parent="ButtonVBox/LoadMargin" unique_id=684408273]
+custom_minimum_size = Vector2(185, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85, 0.9, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.5, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85, 0.9, 1)
+theme_override_fonts/font = ExtResource("2_font_regular")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "读 取 存 档"
+
+[node name="Spacer2" type="Control" parent="ButtonVBox" unique_id=1316880904]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+
+[node name="SettingsMargin" type="MarginContainer" parent="ButtonVBox" unique_id=154637847]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 4
+
+[node name="SettingsBtn" type="Button" parent="ButtonVBox/SettingsMargin" unique_id=1823732516]
+custom_minimum_size = Vector2(195, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85, 0.9, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.5, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85, 0.9, 1)
+theme_override_fonts/font = ExtResource("2_font_regular")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "选 项 设 置"
+
+[node name="Spacer3" type="Control" parent="ButtonVBox" unique_id=1882852613]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="GalleryMargin" type="MarginContainer" parent="ButtonVBox" unique_id=33498199]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 24
+
+[node name="GalleryBtn" type="Button" parent="ButtonVBox/GalleryMargin" unique_id=777128822]
+custom_minimum_size = Vector2(175, 46)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85, 0.9, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.5, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85, 0.9, 1)
+theme_override_fonts/font = ExtResource("2_font_regular")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "画 廊 欣 赏"
+
+[node name="Spacer4" type="Control" parent="ButtonVBox" unique_id=1935886198]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+
+[node name="AboutMargin" type="MarginContainer" parent="ButtonVBox" unique_id=1888674701]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 10
+
+[node name="AboutBtn" type="Button" parent="ButtonVBox/AboutMargin" unique_id=1272060517]
+custom_minimum_size = Vector2(145, 42)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85, 0.9, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.5, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85, 0.9, 1)
+theme_override_fonts/font = ExtResource("2_font_regular")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "关    于"
+
+[node name="Spacer5" type="Control" parent="ButtonVBox" unique_id=353518601]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="QuitMargin" type="MarginContainer" parent="ButtonVBox" unique_id=1340102209]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 28
+
+[node name="QuitBtn" type="Button" parent="ButtonVBox/QuitMargin" unique_id=1112247715]
+custom_minimum_size = Vector2(125, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 0.85, 0.9, 1)
+theme_override_colors/font_pressed_color = Color(0.9, 0.5, 0.65, 1)
+theme_override_colors/font_hover_color = Color(1, 0.85, 0.9, 1)
+theme_override_fonts/font = ExtResource("2_font_regular")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+text = "退 出 游 戏"
+
+[node name="sign" type="Label" parent="." unique_id=1242757989]
+layout_mode = 0
+offset_left = 988.0
+offset_top = 1.0
+offset_right = 1164.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0.631087, 0.114046, 0.768571, 0.235294)
+theme_override_fonts/font = ExtResource("1_font_title")
+text = "ゴールデンアップルパイ"

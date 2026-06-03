@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqkar7j1otg3s"]
+
+[ext_resource type="Script" uid="uid://buvmxm4t0hy1f" path="res://scripts/game/main.gd" id="1_main_script"]
+[ext_resource type="PackedScene" uid="uid://dg7y2x8v1k4f" path="res://scenes/ui/dialog_ui.tscn" id="2_dialog_ui"]
+[ext_resource type="PackedScene" uid="uid://7cj7sbno5fsw" path="res://scenes/ui/menu.tscn" id="3_menu"]
+[ext_resource type="AudioStream" uid="uid://bfjq61fxev4gj" path="res://resources/audio/bgm.ogg" id="4_bgm"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_main_script")
+
+[node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_bgm")
+volume_db = -10.0
+autoplay = true
+bus = &"BGM"
+
+[node name="DialogLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="DialogUI" parent="DialogLayer" instance=ExtResource("2_dialog_ui")]
+
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+layer = 100
+
+[node name="Menu" parent="MenuLayer" instance=ExtResource("3_menu")]

@@ -1,0 +1,110 @@
+# GAP 角色演绎测试
+# 展示分层立绘框架的全部功能
+
+@chapter gap_test
+
+@label start
+@bg bg_1
+@bgm peaceful_day
+@transition fade_from_black 0.8
+
+# ═══════════════════════ 开场 ═══════════════════════
+@perform gap stand
+GAP: 嘿，你来了。等你有一会儿了。
+GAP: 今天天气不错，正好适合出来走走。
+
+@perform gap smile
+GAP: 笑什么？看到我心情好不行吗？
+
+@perform gap smile2
+GAP: ……你这样盯着我看，我有点不自在。
+GAP: 算了，习惯了。
+
+# ═══════════════════════ 展示 OK + wink ═══════════════════════
+
+@perform gap wink
+GAP: 对了，有件事想跟你说——
+GAP: 还记得上次那个计划吗？一切都没问题，包在我身上。
+GAP: OK？
+
+@perform gap stand
+GAP: 你那个表情……是不相信我？
+
+@perform gap smile2
+GAP: 啧，不信拉倒，到时候别惊讶就行。
+
+# ═══════════════════════ 翻转展示 ═══════════════════════
+
+@perform gap welcome
+GAP: 不过嘛——既然你来了，还是欢迎的。
+GAP: 我一直很欢迎你，你知道的。
+
+@char_flip gap
+GAP: 转身想想……最近是不是有什么事忘了做？
+GAP: 啊，不重要。回头再说。
+
+@char_flip gap
+@perform gap stand
+GAP: 好了，说回正题。你来找我，肯定有事吧？
+
+# ═══════════════════════ 快速切换 ═══════════════════════
+
+GAP: 算了，不等你说了，我先给你走个秀——
+@perform gap wink
+GAP: 看这个——
+@perform gap smile
+GAP: 还有这个——
+@perform gap welcome
+GAP: 还有—— 
+
+@perform gap stand
+GAP: ……行，我自己演完了。你倒是说句话啊。
+
+# ═══════════════════════ 翻转 + 姿态组合 ═══════════════════════
+
+GAP: 其实吧，人有时候换个角度看事情，会有不一样的发现。
+@char_flip gap
+GAP: 就像现在这样，换个方向看问题。
+
+@char_flip gap
+@perform gap smile
+GAP: 转回来，日子照旧过，但心态不一样了。
+
+@char_flip gap
+@perform gap welcome
+GAP: 不管从哪个方向，我张开双臂迎接你。
+GAP: 这是真心话。
+
+@char_flip gap
+@perform gap stand
+GAP: ……好了，肉麻的话就说到这。
+GAP: 再说下去我自己都要受不了了。
+
+@perform gap wink
+GAP: 总之，一切顺利。交给我。
+
+@transition fade_to_black 0.5
+
+# ═══════════════════════ 结尾 ═══════════════════════
+
+@perform gap smile
+@transition fade_from_black 0.5
+GAP: 行，那就这样。
+GAP: 下次见。
+
+@perform gap wink
+GAP: 记住——有我在，没问题。
+
+@perform gap stand
+GAP: ………………
+
+@perform gap smile2
+GAP: ……还不走？那我先溜了。
+
+@perform gap welcome
+GAP: 开玩笑的！欢迎随时来找我。
+@achievement unlock gap_test_complete GAP交互测试 完成了GAP的全部演绎测试
+GAP: 回见！
+
+@transition fade_to_black 1.0
+@chapter_end

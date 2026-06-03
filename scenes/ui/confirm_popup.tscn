@@ -1,0 +1,153 @@
+[gd_scene load_steps=10 format=3 uid="uid://dgto300plw08q"]
+
+[ext_resource type="Script" uid="uid://5dxiv3xdthi1" path="res://scripts/ui/confirm_popup.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://bwhrel8tawu0j" path="res://resources/font/font.ttf" id="2"]
+[ext_resource type="FontFile" uid="uid://dm43ge6fptwh7" path="res://resources/font/font2.ttf" id="2_lysc0"]
+[ext_resource type="Script" uid="uid://cx38gp8bdmqex" path="res://scripts/effects/button_sfx.gd" id="3_btn_sfx"]
+
+[sub_resource type="StyleBoxFlat" id="panel_style"]
+content_margin_left = 16.0
+content_margin_top = 12.0
+content_margin_right = 16.0
+content_margin_bottom = 12.0
+bg_color = Color(1, 1, 1, 0.96)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.97, 0.45, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_b3san"]
+font = ExtResource("2_lysc0")
+font_size = 30
+font_color = Color(0.957135, 0.410907, 0.283654, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p78mu"]
+bg_color = Color(0.972856, 0.495062, 0.637074, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lysc0"]
+bg_color = Color(0.972549, 0.631373, 0.45098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b3san"]
+bg_color = Color(0.651349, 0.65362, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ConfirmPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="ButtonSfx" type="Node" parent="."]
+script = ExtResource("3_btn_sfx")
+
+[node name="Overlay" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.180005, 0.180005, 0.180005, 0.34902)
+
+[node name="Panel" type="PanelContainer" parent="Overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -219.0
+offset_top = -77.0
+offset_right = 216.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("panel_style")
+
+[node name="VBox" type="Control" parent="Overlay/Panel"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="Overlay/Panel/VBox"]
+layout_mode = 2
+offset_top = 2.0
+offset_right = 405.0
+offset_bottom = 40.0
+text = "- 当 前 存 档 - "
+label_settings = SubResource("LabelSettings_b3san")
+horizontal_alignment = 1
+
+[node name="ConfirmLabel" type="Label" parent="Overlay/Panel/VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = -2.0
+offset_top = 45.0
+offset_right = 406.0
+offset_bottom = 138.0
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="HBox" type="Control" parent="Overlay/Panel/VBox"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = -6.0
+offset_top = 150.0
+offset_right = 359.0
+offset_bottom = 199.0
+
+[node name="SaveBtn" type="Button" parent="Overlay/Panel/VBox/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 1.0
+offset_top = 6.0
+offset_right = 130.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_p78mu")
+text = "覆 盖 保 存"
+
+[node name="LoadBtn" type="Button" parent="Overlay/Panel/VBox/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 141.0
+offset_top = 6.0
+offset_right = 270.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_lysc0")
+text = "读 取 存 档"
+
+[node name="CancelBtn" type="Button" parent="Overlay/Panel/VBox/HBox"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 281.0
+offset_top = 6.0
+offset_right = 407.0
+offset_bottom = 41.0
+theme_override_fonts/font = ExtResource("2")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_b3san")
+text = "取    消"

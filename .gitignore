@@ -1,0 +1,16 @@
+.godot/
+/android/
+.workbuddy/
+.venv/
+team_workspace/
+tools/
+output/
+backup/
+download_gradle.bat
+setup_all.bat
+setup_android_sdk.bat
+assets/
+saves/
+*.uid
+
+

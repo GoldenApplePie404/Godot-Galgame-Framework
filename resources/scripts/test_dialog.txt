@@ -1,0 +1,46 @@
+# 测试对话脚本
+# MVP验证用
+
+@chapter test_chapter
+@bg school_classroom
+@bgm peaceful_day
+@char snow left smile
+
+@label start
+旁白: 这是Galgame MVP测试对话，用于验证对话系统和成就系统集成。
+
+雪乃: 早上好，今天天气真不错呢。
+主角: 是啊，很适合去天台吃午饭。
+
+@choice
+你想和谁一起吃午饭？
+- 和雪乃一起 → @affection snow +5 @jump lunch_snow
+- 去找玲音 → @jump lunch_lin
+
+@label lunch_snow
+@char snow center happy
+雪乃: 真的吗？那我去买两份便当！
+@achievement unlock first_lunch
+@event trigger lunch_with_snow
+
+雪乃: 这是你的便当，希望合你的口味。
+主角: 谢谢，看起来很美味。
+@affection snow +10
+
+旁白: 午餐时间愉快地结束了...
+@bg sunset
+@bgm evening_melody
+
+雪乃: 明天还能一起吃饭吗？
+主角: 当然，我很乐意。
+
+@label lunch_lin
+@char lin right neutral
+玲音: 诶？前辈要和我一起吃午饭吗？
+主角: 如果你不介意的话。
+玲音: 当然不介意！我很开心！
+@affection lin +8
+
+# 章节结束
+@chapter_end
+@event chapter1_completed

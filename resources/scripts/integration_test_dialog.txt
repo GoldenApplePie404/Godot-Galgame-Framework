@@ -1,0 +1,11 @@
+# 集成测试对话
+@chapter 集成测试
+@bg test_bg
+
+@label start
+旁白: 这是一个集成测试，用于验证对话指令触发成就解锁。
+
+雪乃: 如果你看到这条消息，测试正在运行。
+@achievement unlock first_lunch
+
+旁白: 成就应该已经解锁了。

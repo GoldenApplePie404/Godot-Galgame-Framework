@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bqa7sxncjg6i6"]
+
+[ext_resource type="Script" uid="uid://4u1ahm7n1bv3" path="res://scripts/ui/notification_popup.gd" id="1"]
+
+[node name="NotificationPopup" type="Panel" unique_id=904095977]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("1")
+font_color = Color(1, 0.3529412, 0.9607843, 1)

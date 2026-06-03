@@ -1,0 +1,70 @@
+{
+  "achievements": [
+	{
+	  "id": "first_lunch",
+	  "name": "第一次共进午餐",
+	  "description": "与雪乃一起享用午餐",
+	  "icon": "res://resources/achievements/lunch_icon.png",
+	  "type": "story",
+	  "hidden": false,
+	  "conditions": [
+		{"type": "event_triggered", "event_id": "lunch_with_snow"}
+	  ],
+	  "reward": {"type": "affection", "target": "snow", "value": 10}
+	},
+	{
+	  "id": "friend_maker",
+	  "name": "交际花",
+	  "description": "与所有角色成为朋友（好感度≥30）",
+	  "icon": "res://resources/achievements/friends_icon.png",
+	  "type": "affection",
+	  "hidden": false,
+	  "conditions": [
+		{"type": "affection_reached", "target": "snow", "value": 30},
+		{"type": "affection_reached", "target": "lin", "value": 30},
+		{"type": "affection_reached", "target": "xiao", "value": 30},
+		{"type": "affection_reached", "target": "night", "value": 30}
+	  ],
+	  "reward": {"type": "unlock", "content": "secret_ending_01"}
+	},
+	{
+	  "id": "puzzle_master",
+	  "name": "解谜大师",
+	  "description": "完成所有解密小游戏",
+	  "icon": "res://resources/achievements/puzzle_icon.png",
+	  "type": "puzzle",
+	  "hidden": false,
+	  "conditions": [
+		{"type": "puzzle_completed", "puzzle_id": "password_game"},
+		{"type": "puzzle_completed", "puzzle_id": "item_combination"},
+		{"type": "puzzle_completed", "puzzle_id": "logic_puzzle"}
+	  ],
+	  "reward": {"type": "item", "item_id": "master_key", "quantity": 1}
+	},
+	{
+	  "id": "collector",
+	  "name": "收藏家",
+	  "description": "收集所有隐藏物品（10/10）",
+	  "icon": "res://resources/achievements/collector_icon.png",
+	  "type": "collection",
+	  "hidden": false,
+	  "conditions": [
+		{"type": "collect_items", "item_count": 10}
+	  ],
+	  "progress_target": 10,
+	  "reward": {"type": "unlock", "content": "gallery_unlock_all"}
+	},
+	{
+	  "id": "speed_runner",
+	  "name": "速通玩家",
+	  "description": "在3小时内完成游戏",
+	  "icon": "res://resources/achievements/speed_icon.png",
+	  "type": "challenge",
+	  "hidden": true,
+	  "conditions": [
+		{"type": "time_limit", "max_hours": 3}
+	  ],
+	  "reward": {"type": "affection", "target": "all", "value": 50}
+	}
+  ]
+}

@@ -1,0 +1,517 @@
+[gd_scene load_steps=17 format=3 uid="uid://d2settings02"]
+
+[ext_resource type="Script" uid="uid://dset4menu0002" path="res://scripts/ui/settings_menu.gd" id="1_script"]
+[ext_resource type="FontFile" uid="uid://dm43ge6fptwh7" path="res://resources/font/font2.ttf" id="2_x3vyp"]
+[ext_resource type="FontFile" uid="uid://bwhrel8tawu0j" path="res://resources/font/font.ttf" id="3_0b1cv"]
+[ext_resource type="Script" uid="uid://cx38gp8bdmqex" path="res://scripts/effects/button_sfx.gd" id="4_btn_sfx"]
+
+[sub_resource type="StyleBoxFlat" id="panel_bg"]
+content_margin_left = 32.0
+content_margin_top = 24.0
+content_margin_right = 32.0
+content_margin_bottom = 24.0
+bg_color = Color(1, 1, 1, 0.96)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.97, 0.45, 0, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_color = Color(0, 0, 0, 0.18)
+shadow_size = 8
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="separator"]
+bg_color = Color(0.97, 0.45, 0, 0.3)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="slider_track"]
+content_margin_top = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.97, 0.45, 0, 0.3)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="slider_grab"]
+bg_color = Color(0.97, 0.45, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="slider_grab_hl"]
+bg_color = Color(0.87, 0.35, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="separator_dim"]
+bg_color = Color(0.97, 0.45, 0, 0.12)
+
+[sub_resource type="StyleBoxEmpty" id="check_bg_normal"]
+
+[sub_resource type="StyleBoxFlat" id="check_bg_hover"]
+bg_color = Color(0.97, 0.45, 0, 0.12)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="check_bg_pressed"]
+bg_color = Color(0.97, 0.45, 0, 0.2)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="btn_hover"]
+content_margin_left = 16.0
+content_margin_top = 9.0
+content_margin_right = 16.0
+content_margin_bottom = 9.0
+bg_color = Color(0.97, 0.45, 0, 0.15)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.97, 0.45, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="btn_pressed"]
+content_margin_left = 16.0
+content_margin_top = 9.0
+content_margin_right = 16.0
+content_margin_bottom = 9.0
+bg_color = Color(0.97, 0.45, 0, 0.22)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.78, 0.3, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="btn_normal"]
+content_margin_left = 16.0
+content_margin_top = 9.0
+content_margin_right = 16.0
+content_margin_bottom = 9.0
+bg_color = Color(0.97, 0.45, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.97, 0.45, 0, 0.7)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="SettingsMenu" type="CanvasLayer"]
+layer = 100
+
+[node name="Content" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="ButtonSfx" type="Node" parent="Content"]
+script = ExtResource("4_btn_sfx")
+
+[node name="BackgroundOverlay" type="ColorRect" parent="Content"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.55)
+
+[node name="Panel" type="PanelContainer" parent="Content"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -265.0
+offset_right = 290.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("panel_bg")
+
+[node name="MainVBox" type="VBoxContainer" parent="Content/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TitleLabel" type="Label" parent="Content/Panel/MainVBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.97, 0.45, 0, 1)
+theme_override_fonts/font = ExtResource("2_x3vyp")
+theme_override_font_sizes/font_size = 40
+text = "设    置"
+horizontal_alignment = 1
+
+[node name="TopSeparator" type="HSeparator" parent="Content/Panel/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("separator")
+
+[node name="TopSpacer" type="Control" parent="Content/Panel/MainVBox"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Content/Panel/MainVBox"]
+custom_minimum_size = Vector2(0, 310)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SettingsList" type="VBoxContainer" parent="Content/Panel/MainVBox/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="AudioHeader" type="MarginContainer" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+layout_mode = 2
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="AudioHeaderLabel" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/AudioHeader"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.97, 0.45, 0, 0.7)
+theme_override_font_sizes/font_size = 18
+text = "━  音  频  ━"
+horizontal_alignment = 1
+
+[node name="BgmRow" type="HBoxContainer" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="BgmLabel" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/BgmRow"]
+custom_minimum_size = Vector2(88, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_x3vyp")
+theme_override_font_sizes/font_size = 23
+text = "BGM音量"
+
+[node name="BgmSlider" type="HSlider" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/BgmRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/slider = SubResource("slider_track")
+theme_override_styles/grabber_area = SubResource("slider_grab")
+theme_override_styles/grabber_area_highlight = SubResource("slider_grab_hl")
+value = 80.0
+
+[node name="BgmValue" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/BgmRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.97, 0.45, 0, 0.8)
+theme_override_font_sizes/font_size = 20
+text = "80"
+horizontal_alignment = 1
+
+[node name="SfxRow" type="HBoxContainer" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="SfxLabel" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/SfxRow"]
+custom_minimum_size = Vector2(88, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_x3vyp")
+theme_override_font_sizes/font_size = 23
+text = "音效音量"
+
+[node name="SfxSlider" type="HSlider" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/SfxRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/slider = SubResource("slider_track")
+theme_override_styles/grabber_area = SubResource("slider_grab")
+theme_override_styles/grabber_area_highlight = SubResource("slider_grab_hl")
+value = 80.0
+
+[node name="SfxValue" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/SfxRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.97, 0.45, 0, 0.8)
+theme_override_font_sizes/font_size = 20
+text = "80"
+horizontal_alignment = 1
+
+[node name="VoiceRow" type="HBoxContainer" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="VoiceLabel" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/VoiceRow"]
+custom_minimum_size = Vector2(88, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_x3vyp")
+theme_override_font_sizes/font_size = 23
+text = "语音音量"
+
+[node name="VoiceSlider" type="HSlider" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/VoiceRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/slider = SubResource("slider_track")
+theme_override_styles/grabber_area = SubResource("slider_grab")
+theme_override_styles/grabber_area_highlight = SubResource("slider_grab_hl")
+value = 80.0
+
+[node name="VoiceValue" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/VoiceRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.97, 0.45, 0, 0.8)
+theme_override_font_sizes/font_size = 20
+text = "80"
+horizontal_alignment = 1
+
+[node name="AudioSep" type="HSeparator" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("separator_dim")
+
+[node name="GameHeader" type="MarginContainer" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+layout_mode = 2
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_bottom = 2
+
+[node name="GameHeaderLabel" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/GameHeader"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.97, 0.45, 0, 0.7)
+theme_override_font_sizes/font_size = 18
+text = "━  游  戏  ━"
+horizontal_alignment = 1
+
+[node name="TextSpeedRow" type="HBoxContainer" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="TextSpeedLabel" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/TextSpeedRow"]
+custom_minimum_size = Vector2(88, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_x3vyp")
+theme_override_font_sizes/font_size = 23
+text = "文字速度"
+
+[node name="TextSpeedSlider" type="HSlider" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/TextSpeedRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(60, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/slider = SubResource("slider_track")
+theme_override_styles/grabber_area = SubResource("slider_grab")
+theme_override_styles/grabber_area_highlight = SubResource("slider_grab_hl")
+min_value = 1.0
+max_value = 5.0
+value = 3.0
+
+[node name="TextSpeedValue" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/TextSpeedRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.97, 0.45, 0, 0.8)
+theme_override_font_sizes/font_size = 14
+text = "普通"
+horizontal_alignment = 1
+
+[node name="GameSep" type="HSeparator" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("separator_dim")
+
+[node name="AutoPlayRow" type="HBoxContainer" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="AutoPlayLabel" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/AutoPlayRow"]
+custom_minimum_size = Vector2(88, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_x3vyp")
+theme_override_font_sizes/font_size = 23
+text = "自动播放"
+
+[node name="AutoPlayCheck" type="CheckButton" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/AutoPlayRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.97, 0.45, 0, 0.5)
+theme_override_colors/font_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/font_focus_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.78, 0.3, 0, 1)
+theme_override_fonts/font = ExtResource("3_0b1cv")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("check_bg_normal")
+theme_override_styles/hover = SubResource("check_bg_hover")
+theme_override_styles/pressed = SubResource("check_bg_pressed")
+theme_override_styles/normal = SubResource("check_bg_normal")
+text = "   关闭"
+
+[node name="SkipRow" type="HBoxContainer" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="SkipLabel" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/SkipRow"]
+custom_minimum_size = Vector2(88, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_x3vyp")
+theme_override_font_sizes/font_size = 23
+text = "跳过已读"
+
+[node name="SkipCheck" type="CheckButton" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/SkipRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.97, 0.45, 0, 0.5)
+theme_override_colors/font_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/font_focus_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.78, 0.3, 0, 1)
+theme_override_fonts/font = ExtResource("3_0b1cv")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("check_bg_normal")
+theme_override_styles/hover = SubResource("check_bg_hover")
+theme_override_styles/pressed = SubResource("check_bg_pressed")
+theme_override_styles/normal = SubResource("check_bg_normal")
+text = "   关闭"
+
+[node name="FullscreenRow" type="HBoxContainer" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="FullscreenLabel" type="Label" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/FullscreenRow"]
+custom_minimum_size = Vector2(88, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_fonts/font = ExtResource("2_x3vyp")
+theme_override_font_sizes/font_size = 23
+text = "全       屏"
+
+[node name="FullscreenCheck" type="CheckButton" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/FullscreenRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_colors/font_hover_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/icon_hover_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/icon_normal_color = Color(0.97, 0.45, 0, 0.5)
+theme_override_colors/font_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/font_focus_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.78, 0.3, 0, 1)
+theme_override_fonts/font = ExtResource("3_0b1cv")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/focus = SubResource("check_bg_normal")
+theme_override_styles/hover = SubResource("check_bg_hover")
+theme_override_styles/pressed = SubResource("check_bg_pressed")
+theme_override_styles/normal = SubResource("check_bg_normal")
+text = "   关闭"
+
+[node name="DevSep" type="HSeparator" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+layout_mode = 2
+theme_override_constants/separation = 1
+theme_override_styles/separator = SubResource("separator_dim")
+
+[node name="DevTestRow" type="MarginContainer" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList"]
+custom_minimum_size = Vector2(0, 34)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 6
+
+[node name="DevTestBtn" type="Button" parent="Content/Panel/MainVBox/ScrollContainer/SettingsList/DevTestRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_focus_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_colors/font_pressed_color = Color(0.78, 0.3, 0, 1)
+theme_override_fonts/font = ExtResource("3_0b1cv")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/hover = SubResource("btn_hover")
+theme_override_styles/pressed = SubResource("btn_pressed")
+theme_override_styles/normal = SubResource("btn_normal")
+text = "⚙ 开发者测试"
+
+[node name="BottomSeparator" type="HSeparator" parent="Content/Panel/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 2
+theme_override_styles/separator = SubResource("separator")
+
+[node name="BottomSpacer" type="Control" parent="Content/Panel/MainVBox"]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="BackBtn" type="Button" parent="Content/Panel/MainVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_hover_color = Color(0.97, 0.45, 0, 1)
+theme_override_colors/font_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_focus_color = Color(0.2, 0.2, 0.2, 1)
+theme_override_colors/font_pressed_color = Color(0.78, 0.3, 0, 1)
+theme_override_fonts/font = ExtResource("2_x3vyp")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/hover = SubResource("btn_hover")
+theme_override_styles/pressed = SubResource("btn_pressed")
+theme_override_styles/normal = SubResource("btn_normal")
+text = "返    回"
